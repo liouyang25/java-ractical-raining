@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="serviceTest.TestGoodsService" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-11-23T03:45:22" hostname="LAPTOP-PG5JBSQ2" time="0.869">
+  <properties/>
+  <testcase name="testGoodsService()" classname="serviceTest.TestGoodsService" time="0.869"/>
+  <system-out><![CDATA[goods
+测试列表查询
+Goods{id='169b1421-1d6f-48de-a6c6-7e17930cfacc', createTime=2023-11-23 11:32:27.0, deleteTime=null, isDel='1', name='桃子', price=10.0, number=100, brand='桃子'}
+Goods{id='31e57be4b9404d43a14f5b4ace83453d', createTime=2019-03-14 23:34:50.0, deleteTime=null, isDel='1', name='橘子', price=3.3, number=16, brand='柑橘'}
+Goods{id='8f709f1e023d4f02a4547fa17fc7a965', createTime=2019-03-14 23:34:50.0, deleteTime=null, isDel='1', name='香蕉', price=3.8, number=87, brand='广东香蕉'}
+Goods{id='b0b85b636fd441c19074051161352ddc', createTime=2019-03-14 23:34:50.0, deleteTime=null, isDel='1', name='山竹', price=9.3, number=15, brand='NO'}
+Goods{id='d12b5ad4738840c48e4a50b8bb55f4e3', createTime=2019-03-14 23:34:50.0, deleteTime=null, isDel='1', name='凤梨', price=6.5, number=97, brand='台湾金钻'}
+测试商品名查询
+Goods{id='169b1421-1d6f-48de-a6c6-7e17930cfacc', createTime=2023-11-23 11:32:27.0, deleteTime=null, isDel='1', name='桃子', price=10.0, number=100, brand='桃子'}
+Goods{id='31e57be4b9404d43a14f5b4ace83453d', createTime=2019-03-14 23:34:50.0, deleteTime=null, isDel='1', name='橘子', price=3.3, number=16, brand='柑橘'}
+测试根据id查询
+Goods{id='31e57be4b9404d43a14f5b4ace83453d', createTime=2019-03-14 23:34:50.0, deleteTime=null, isDel='1', name='橘子', price=3.3, number=16, brand='柑橘'}
+测试更新商品信息
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
