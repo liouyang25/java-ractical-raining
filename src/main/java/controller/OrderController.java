@@ -41,8 +41,18 @@ public class OrderController extends BaseController {
     }
 
     public String updateOrder(Order curOrder) {
-        //TODO
-        return "";
+        Msg msg = new Msg();
+        int affectedRows = orderService.updateOrderById(curOrder.getId(), curOrder);
+        if (affectedRows > 0) {
+            msg.setType(Msg.SUCCESS);
+            msg.setMsg("更新订单成功");
+            log.info("更新订单成功");
+        } else {
+            msg.setType(Msg.FAIL);
+            msg.setMsg("更新订单失败");
+            log.error("更新订单失败");
+        }
+        return JSONUtil.entity2JSON(msg);
     }
 
     public String deleteOrder(String id) {

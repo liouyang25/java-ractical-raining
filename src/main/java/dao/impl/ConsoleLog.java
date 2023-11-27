@@ -11,16 +11,16 @@ import dao.ISysLog;
 public class ConsoleLog implements ISysLog {
     @Override
     public void info(String msg) {
-        System.out.println(msg);
+        //TODO
     }
 
     @Override
     public void warn(String msg) {
-        System.out.println(msg);
+        //TODO
     }
 
     @Override
     public void error(String msg) {
-        System.out.println(msg);
+        //TODO
     }
 }
