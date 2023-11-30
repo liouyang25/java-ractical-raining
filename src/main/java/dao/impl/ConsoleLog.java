@@ -31,7 +31,7 @@ public class ConsoleLog implements ISysLog {
     }
 
     public void printLog(String msg, String type) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("h:mm:a");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("h:mm a");
         String log = new Log(msg, type, simpleDateFormat.format(new Date())).toString();
         System.out.println(log);
     }
