@@ -1,6 +1,10 @@
 package dao.impl;
 
 import dao.ISysLog;
+import model.Log;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author: 李卫
@@ -9,18 +13,26 @@ import dao.ISysLog;
  * @Description:
  */
 public class ConsoleLog implements ISysLog {
+
+
     @Override
     public void info(String msg) {
-        //TODO
+        printLog(msg, INFO);
     }
 
     @Override
     public void warn(String msg) {
-        //TODO
+        printLog(msg, WARN);
     }
 
     @Override
     public void error(String msg) {
-        //TODO
+        printLog(msg, ERROR);
+    }
+
+    public void printLog(String msg, String type) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("h:mm:a");
+        String log = new Log(msg, type, simpleDateFormat.format(new Date())).toString();
+        System.out.println(log);
     }
 }
