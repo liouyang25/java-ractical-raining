@@ -34,12 +34,11 @@ public class GoodsClient extends Client {
                 currentGoods = goods;
                 showGoodsDetail();
                 result = userOperate("输入A加入购物车", "L登录", "I首页");
-                if (result.equals(ADD)) {
-                    return ADD;
-                } else {
-                    System.out.println("输入错误，请重新输入");
-                    result = userOperate("输入A加入购物车", "L登录");
-                }
+            } else if (result.equals(ADD)) {
+                return ADD;
+            } else {
+                System.out.println("输入错误, 请重新输入");
+                result = userOperate("请根据序号查看商品详情", "L登录", "I首页");
             }
         }
     }
