@@ -20,5 +20,5 @@ public class BaseServiceImpl implements BaseService {
      * 上下文对象 用来存储所有业务类的公共信息
      */
 
-    protected static final Map<String, Object> context = new HashMap<>();
+    protected static final Map<String, Object> CONTEXT = new HashMap<>();
 }

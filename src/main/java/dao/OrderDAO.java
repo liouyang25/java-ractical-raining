@@ -50,4 +50,9 @@ public interface OrderDAO {
      * @return
      */
     int deleteOrder(String id);
+    int deleteOrderBySN(String id);
+
+    Order getOrderById(String id);
+
+    List<Order> selectOrder();
 }

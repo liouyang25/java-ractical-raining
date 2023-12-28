@@ -45,4 +45,5 @@ public interface OrderService {
      * @return
      */
     int deleteOrder(String id);
+    int deleteOrderBySN(String id);
 }

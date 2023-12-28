@@ -1,5 +1,9 @@
 package service;
 
+import model.OrderDetail;
+
+import java.util.List;
+
 /**
  * @author: 李卫
  * @email: liouyang25@gmail.com
@@ -13,6 +17,5 @@ public interface OrderDetailService {
      * @param serialNumber
      * @return
      */
-    //TODO
-//    List<OrderDetail> findOrderDetailBySN(String serialNumber);
+    List<OrderDetail> findOrderDetailBySN(String serialNumber);
 }

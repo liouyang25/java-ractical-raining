@@ -22,8 +22,8 @@ public class OrderDAOImpl implements OrderDAO {
 
     @Override
     public List<Order> selectOrderByUser(User loginUser) {
-        String sql = "select * from orders where consignee like ?";
-        return new ObjectUtil<Order>().getList(sql, Order.class, "%" + loginUser.getUsername() + "%");
+        String sql = "select * from orders where user_id = ?";
+        return new ObjectUtil<Order>().getList(sql, Order.class, loginUser.getId());
     }
 
     @Override
@@ -45,5 +45,23 @@ public class OrderDAOImpl implements OrderDAO {
     public int deleteOrder(String id) {
         String sql = "delete from orders where id=?";
         return new ObjectUtil<Order>().delete(sql, id);
+    }
+
+    @Override
+    public int deleteOrderBySN(String id) {
+        String sql = "delete from orders where serialNumber=?";
+        return new ObjectUtil<Order>().delete(sql, id);
+    }
+
+    @Override
+    public Order getOrderById(String id) {
+        String sql = "select * from orders WHERE id = ?";
+        return new ObjectUtil<Order>().getOne(sql, Order.class, id);
+    }
+
+    @Override
+    public List<Order> selectOrder() {
+        String sql = "SELECT * FROM `orders`";
+        return new ObjectUtil<User>().getList(sql, Order.class);
     }
 }

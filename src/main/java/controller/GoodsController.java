@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class GoodsController extends BaseController {
     private Goods goods;
-    private GoodsService goodsService;
+    private final GoodsService goodsService;
 
     public GoodsController() {
         goodsService = new GoodsServiceImpl();
@@ -54,6 +54,7 @@ public class GoodsController extends BaseController {
         return JSONUtil.entity2JSON(msg);
     }
 
+
     public String getGoodsById(String id) {
         Msg msg = new Msg();
         try {
@@ -69,6 +70,19 @@ public class GoodsController extends BaseController {
         }
 
         return JSONUtil.entity2JSON(msg);
+    }
+
+    public Goods getGoodsById1(String id) {
+        Msg msg = new Msg();
+        Goods goods = null;
+        try {
+            goods = goodsService.findGoodsById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        msg.setObj(goods);
+        msg.setType(Msg.SUCCESS);
+        return goods;
     }
 
     public String updateGoodsById(String id, Goods goods) {

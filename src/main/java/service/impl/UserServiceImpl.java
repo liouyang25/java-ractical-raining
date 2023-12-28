@@ -1,7 +1,9 @@
 package service.impl;
 
 import dao.IDataAccess;
+import dao.UserDAO;
 import dao.impl.IDataAccessImpl;
+import dao.impl.UserDAOImpl;
 import model.User;
 import service.UserService;
 
@@ -15,9 +17,11 @@ import java.util.List;
  */
 public class UserServiceImpl extends BaseServiceImpl implements UserService {
     private IDataAccess iDataAccess;
+    private UserDAO userDAO;
 
     public UserServiceImpl() {
         iDataAccess = new IDataAccessImpl();
+        userDAO = new UserDAOImpl();
     }
 
     @Override
@@ -26,7 +30,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         if (userList != null) {
             for (User u : userList) {
                 if (u.getUsername().equals(user.getUsername()) && u.getPassword().equals(user.getPassword())) {
-                    context.put(LOGIN_USER, u);
+                    CONTEXT.put(LOGIN_USER, u);
                     return u;
                 }
             }
@@ -36,13 +40,31 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
     }
 
     @Override
+    public void logout() {
+        CONTEXT.remove(LOGIN_USER);
+    }
+
+    @Override
     public User getLoginUser() {
-        Object obj = context.get(LOGIN_USER);
+        Object obj = CONTEXT.get(LOGIN_USER);
         if (obj != null) {
             return (User) obj;
         }
         return null;
     }
 
+    @Override
+    public List<User> findUserByUsername(String username) {
+        return userDAO.getUserByName(username);
+    }
 
+    @Override
+    public int addUser(User user) {
+        return userDAO.addUser(user);
+    }
+
+    @Override
+    public int updateUser(User user) {
+        return userDAO.updateUser(user.getId(), user);
+    }
 }

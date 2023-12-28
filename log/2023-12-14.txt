@@ -1,0 +1,1 @@
+[11:58 上午]INFO: 购物车数据：[Goods{id='169b1421-1d6f-48de-a6c6-7e17930cfacc', createTime=null, deleteTime=null, isDel='1', name='桃子', price=8.6, number=0, brand='null'}]

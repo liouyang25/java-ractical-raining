@@ -40,4 +40,8 @@ public class OrderServiceImpl implements OrderService {
     public int deleteOrder(String id) {
         return orderDAO.deleteOrder(id);
     }
+    @Override
+    public int deleteOrderBySN(String id) {
+        return orderDAO.deleteOrderBySN(id);
+    }
 }

@@ -1,8 +1,13 @@
 package service.impl;
 
+import dao.OrderDAO;
 import dao.OrderDetailDAO;
+import dao.impl.OrderDAOImpl;
 import dao.impl.OrderDetailDAOImpl;
+import model.OrderDetail;
 import service.OrderDetailService;
+
+import java.util.List;
 
 /**
  * @author: 李卫
@@ -12,8 +17,18 @@ import service.OrderDetailService;
  */
 public class OrderDetailServiceImpl implements OrderDetailService {
     private OrderDetailDAO orderDetailDAO;
+    private OrderDAO orderDAO;
 
     public OrderDetailServiceImpl() {
-        this.orderDetailDAO = new OrderDetailDAOImpl();
+        orderDetailDAO = new OrderDetailDAOImpl();
+        orderDAO = new OrderDAOImpl();
+    }
+
+    @Override
+    public List<OrderDetail> findOrderDetailBySN(String serialNumber) {
+//        return orderDAO.selectOrderBySN(serialNumber);
+
+        //TODO
+        return null;
     }
 }

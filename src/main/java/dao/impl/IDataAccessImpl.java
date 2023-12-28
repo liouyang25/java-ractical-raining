@@ -17,7 +17,6 @@ public class IDataAccessImpl implements IDataAccess {
     public <T> List<T> getList(Class<T> clazz) {
         String clsName = clazz.getSimpleName().toLowerCase();
         String sql = null;
-        System.out.println(clsName);
         switch (clsName) {
             case "orderdetail":
                 sql = "select * from order_detail";

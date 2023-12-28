@@ -16,29 +16,37 @@ import java.util.List;
 public class GoodsClient extends Client {
     private final GoodsController goodsController = new GoodsController();
 
+    private static final String ADD = "A";
+
     public String index() {
         showGoodsList();
-        String result = userOperate("请根据序号查看商品详情", "L登录", "I首页");
+        String result = userOperate("请根据序号查看商品详情", "U用户中心", "I首页");
         while (true) {
-            if (result.equals(LOGIN)) {
-                return LOGIN;
-            }
-            if (result.equals(EXIT)) {
-                return EXIT;
-            }
-            if (result.equals(INDEX)) {
-                return INDEX;
-            }
-            Goods goods = code2Goods.get(result);
-            if (goods != null) {
-                currentGoods = goods;
-                showGoodsDetail();
-                result = userOperate("输入A加入购物车", "L登录", "I首页");
-            } else if (result.equals(ADD)) {
-                return ADD;
-            } else {
-                System.out.println("输入错误, 请重新输入");
-                result = userOperate("请根据序号查看商品详情", "L登录", "I首页");
+            switch (result) {
+                case USER:
+                    return USER;
+                case INDEX:
+                    return INDEX;
+                case EXIT:
+                    return EXIT;
+                case ADD:
+                    if (currentGoods == null) {
+                        System.out.println("输入错误, 请重新输入");
+                        result = userOperate("请根据序号查看商品详情", "U用户中心", "I首页");
+                        continue;
+                    }
+                    return ADD;
+                default:
+                    Goods goods = code2Goods.get(result);
+                    if (goods != null) {
+                        currentGoods = goods;
+                        showGoodsDetail();
+                        result = userOperate("请根据选项操作", "输入A加入购物车", "U用户中心", "I首页");
+                    } else {
+                        System.out.println("输入错误, 请重新输入");
+                        result = userOperate("请根据序号查看商品详情", "U用户中心", "I首页");
+                    }
+                    break;
             }
         }
     }
@@ -50,7 +58,6 @@ public class GoodsClient extends Client {
         List<?> goodsListObj = (List<?>) obj;
         System.out.println("【商品列表】");
         System.out.println("编号\t\t商品名称\t\t单价\t\t商品库存");
-        System.out.println("========================================");
         int index = 1;
         for (Object o : goodsListObj) {
             String goodsJson = o.toString();
@@ -67,7 +74,6 @@ public class GoodsClient extends Client {
     private void showGoodsDetail() {
         System.out.println("【商品详情】");
         System.out.println("编号\t\t商品名称\t\t单价\t\t商品库存\t\t品牌");
-        System.out.println("========================================");
         String index = "1";
         String name = currentGoods.getName();
         String price = currentGoods.getPrice() + "";

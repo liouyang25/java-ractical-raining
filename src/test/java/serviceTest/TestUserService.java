@@ -11,12 +11,6 @@ import org.junit.jupiter.api.Test;
 public class TestUserService {
 @Test
     public void testUserService() {
-<<<<<<< HEAD
     // master test
-=======
-    /**
-     * main test
-     */
->>>>>>> bc35371 (main test)
 }
 }

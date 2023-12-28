@@ -17,8 +17,8 @@ import java.util.List;
  * @Description:
  */
 public class GoodsServiceImpl implements GoodsService {
-    private GoodsDAO goodsDAO;
-    private IDataAccess iDataAccess;
+    private final GoodsDAO goodsDAO;
+    private final IDataAccess iDataAccess;
 
     public GoodsServiceImpl() {
         goodsDAO = new GoodsDAOImpl();

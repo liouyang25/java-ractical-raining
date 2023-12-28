@@ -1,11 +1,12 @@
 package controller;
 
 import dao.ISysLog;
-import dao.impl.ConsoleLog;
+import dao.impl.TxtLog;
 
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * @author: 李卫
@@ -19,11 +20,17 @@ public class BaseController {
      */
     public static final String LOGIN_USER = "LOGIN_USER";
     /**
+     * 上下文对象的key 订单
+     */
+    public static final String ORDER_USER = "ORDER_USER";
+    /**
      * 上下文对象 用来存储所有业务类的公共的信息
      */
-    protected static final Map<String, Object> context = new HashMap<>();
+    protected static final Map<String, Object> CONTEXT = new HashMap<>();
 
-    protected ISysLog log = new ConsoleLog();
+    protected ISysLog log = new TxtLog();
 
     protected SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    protected Scanner scanner = new Scanner(System.in);
 }
